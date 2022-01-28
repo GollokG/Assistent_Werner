@@ -50,6 +50,11 @@ def run_werner():
         command = command.replace(assistant_keyword, '')
         print(command)
 
+        if 'sprich mir nach' in command:
+            print('Anfrage wird bearbeitet!')
+            repeat = command.replace('sprich mir nach', '')
+            talk(repeat)
+
         if 'hallo' in command:
             print("Anfrage wird bearbeitet!")
             name = listen("Hallo, wie ist dein Name?")
