@@ -20,7 +20,6 @@ voices = engine.getProperty('voices')
 engine.setProperty('voice', voices[0].id)
 wikipedia.set_lang('de')
 running = True
-# print(googletrans.LANGUAGES)
 
 
 def talk(text):
@@ -52,13 +51,14 @@ def run_werner():
 
         if 'sprich mir nach' in command:
             print('Anfrage wird bearbeitet!')
-            repeat = command.replace('sprich mir nach', '')
+            repeat = command.replace('sprich mir nach', '')  # "sprich mir nach" wird gelöscht (mit nichts ersetzt)
             talk(repeat)
 
-        if 'hallo' in command:
+        elif 'hallo' in command:
             print("Anfrage wird bearbeitet!")
             name = listen("Hallo, wie ist dein Name?")
-            talk('Hallo, ' + name + ' ! Ich bin ' + assistant_name + ', dein persönlicher Sprachassistent. Benutze das Codewort "' + assistant_keyword + '", um mich zu benutzen!')
+            talk(
+                'Hallo, ' + name + ' ! Ich bin ' + assistant_name + ', dein persönlicher Sprachassistent. Benutze das Codewort "' + assistant_keyword + '", um mich zu benutzen!')
 
         elif 'spiele' in command:
             print('Anfrage wird bearbeitet!')
@@ -70,7 +70,8 @@ def run_werner():
             counter = 0
             print('Anfrage wird bearbeitet!')
             while counter <= 1:
-                command = listen('Was willst du machen? Sehen, Hinzufügen oder Löschen?') # Oder Einfach talk und dann command nehmen
+                command = listen(
+                    'Was willst du machen? Sehen, Hinzufügen oder Löschen?')  # Oder Einfach talk und dann command nehmen
                 if 'sehen' in command:
                     talk(einkaufsliste)
                     break
@@ -113,15 +114,16 @@ def run_werner():
             print('Anfrage wird bearbeitet!')
             website = command.replace(' suche nach ', '')
             talk('Suche nach' + website)
-            webbrowser.open('www.google.com/search?q=' + website)               # Hier die Schüler auffordern herauszufinden, wie die Suchadresse aufgebaut ist
+            webbrowser.open(
+                'www.google.com/search?q=' + website)  # Hier die Schüler auffordern herauszufinden, wie die Suchadresse aufgebaut ist
 
-        elif 'uhr' in command:                                                  # Gibt die jetztige Zeit aus
+        elif 'uhr' in command:  # Gibt die jetztige Zeit aus
             print('Anfrage wird bearbeitet!')
             time = datetime.datetime.now().strftime('%I:%M')
             date = datetime.date.today().strftime("%d/%m/%Y")
             talk('Es ist ' + date + ' ' + time + 'Uhr')
 
-        elif 'suche auf wikipedia nach' in command:                             # Einschränkungen bei '.' im ersten Wikipedia Satz
+        elif 'suche auf wikipedia nach' in command:  # Einschränkungen bei '.' im ersten Wikipedia Satz
             print('Anfrage wird bearbeitet!')
             search = command.replace('suche auf wikipedia nach', '')
             info = wikipedia.summary(search, 1)
@@ -159,6 +161,7 @@ def run_werner():
         else:
             talk('Bitte sage den Befehl erneut.')
             print(command)
+
 
 try:
     while running:

@@ -64,6 +64,7 @@ def run_werner():
     """
 
     # TODO: Ausschalten des Assistenten (Variable: boolean running)
+    # TODO: Befehl nicht verstanden -> Bitte sage erneut
 
 
 # STARTEN DES ASSISTENTEN
