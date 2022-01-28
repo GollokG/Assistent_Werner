@@ -52,15 +52,16 @@ def run_werner():
 
     # TODO: UNTERSCHIEDLICHE FÄHIGKEITEN DES ASSISTENTEN EINBAUEN (IF-ABFRAGEN: s. Handout und Beispiel unten)
     """
-    # Gibt die jetztige Zeit aus:
-    if 'uhr' in command:
-        print('Anfrage wird bearbeitet!')
-        time = datetime.datetime.now().strftime('%I:%M')
-        date = today.strftime("%d/%m/%Y")
-        talk('Es ist ' + date + ' ' + time + 'Uhr')
+            if 'sprich mir nach' in command:
+                print('Anfrage wird bearbeitet!')
+                repeat = command.replace('sprich mir nach', '')  # "sprich mir nach" wird gelöscht (mit nichts ersetzt)
+                talk(repeat)
 
-    elif:
-        ...
+            elif 'uhr' in command:  # Gibt die jetztige Zeit aus
+                print('Anfrage wird bearbeitet!')
+                time = datetime.datetime.now().strftime('%I:%M')
+                date = datetime.date.today().strftime("%d/%m/%Y")
+                talk('Es ist ' + date + ' ' + time + 'Uhr')
     """
 
     # TODO: Ausschalten des Assistenten (Variable: boolean running)

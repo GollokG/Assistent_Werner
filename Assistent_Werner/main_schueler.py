@@ -54,6 +54,12 @@ def run_werner():
             repeat = command.replace('sprich mir nach', '')  # "sprich mir nach" wird gelöscht (mit nichts ersetzt)
             talk(repeat)
 
+        elif 'uhr' in command:  # Gibt die jetztige Zeit aus
+            print('Anfrage wird bearbeitet!')
+            time = datetime.datetime.now().strftime('%I:%M')
+            date = datetime.date.today().strftime("%d/%m/%Y")
+            talk('Es ist ' + date + ' ' + time + 'Uhr')
+
         elif 'ausschalten' in command:
             global running
             running = False
