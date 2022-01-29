@@ -28,12 +28,10 @@ def talk(text):
     engine.runAndWait()
 
 
-def listen(ask=None):
+def listen():
     command = ""
     try:
         with sr.Microphone() as source:
-            if ask is not None:
-                talk(ask)
             print('listening...')
             voice = listener.listen(source)
             command = listener.recognize_google(voice, language="de-DE")

@@ -30,12 +30,10 @@ def talk(text):
 
 
 # Methode: Assistent hört zu
-def listen(ask=None):
+def listen():
     command = ""
     try:
         with sr.Microphone() as source:
-            if ask is not None:
-                talk(ask)
             print('ich höre zu...')
             voice = listener.listen(source)
             command = listener.recognize_google(voice, language="de-DE")
