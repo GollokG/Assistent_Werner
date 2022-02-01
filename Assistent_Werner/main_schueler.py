@@ -64,6 +64,8 @@ def run_werner():
             global running
             running = False
 
+        # TODO: Weitere Befehle implementieren
+
         else:
             talk('Bitte sage den Befehl erneut.')
             print(command)
